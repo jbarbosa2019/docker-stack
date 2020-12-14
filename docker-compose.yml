@@ -22,5 +22,11 @@ services:
     volumes:
       - mongo-db:/data
 
+  health-data-provider:
+    image: registry.gitlab.com/rivex-tech/smacovid-19/health-data-provider:latest
+    depends_on:
+      - orion
+      - mongo-db
+
 volumes:
   mongo-db:

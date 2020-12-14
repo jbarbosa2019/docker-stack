@@ -1,0 +1,3 @@
+[submodule "health-data-provider"]
+	path = health-data-provider
+	url = git@gitlab.com:rivex-tech/smacovid-19/health-data-provider.git

@@ -13,3 +13,9 @@ services:
     container_name: db-mongo
     ports:
       - "27017:27017"
+
+  health-data-provider:
+    build: ./health-data-provider/
+    restart: on-failure:5
+    ports:
+    - "7501:80"
