@@ -16,6 +16,9 @@ services:
 
   health-data-provider:
     build: ./health-data-provider/
+    entrypoint: ["npm", "run", "debug"]
     restart: on-failure:5
     ports:
     - "7501:80"
+    volumes:
+    - ./health-data-provider/dist:/usr/src/api/dist

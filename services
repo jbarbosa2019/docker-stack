@@ -6,7 +6,7 @@ set -e
 
 if (( $# != 1 )); then
 	echo "Illegal number of parameters"
-	echo "usage: services [start|stop]"
+	echo "usage: services [start|stop|build]"
 	exit 1
 fi
 
@@ -24,7 +24,10 @@ displayServices () {
 command="$1"
 case "${command}" in
 	"help")
-		echo "usage: services [start|stop]"
+		echo "usage: services [start|stop|build]"
+		;;
+	"build")
+		docker-compose build
 		;;
 	"start")
 		stoppingContainers
@@ -38,7 +41,7 @@ case "${command}" in
 		;;
 	*)
 		echo "Command not Found."
-		echo "usage: services [create|start|stop]"
+		echo "usage: services [start|stop|build]"
 		exit 127;
 		;;
 esac
