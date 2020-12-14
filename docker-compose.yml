@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # Orion is the context broker
+  orion:
+    image: fiware/orion-ld:0.6-PRE-18
+    depends_on:
+      - mongo-db
+    expose:
+      - "1026"
+    ports:
+      - "1026:1026"
+    healthcheck:
+      test: curl --fail -s http://orion:1026/version || exit 1
+
+  # Databases
+  mongo-db:
+    image: mongo:3.6
+    expose:
+      - "27017"
+    command: --nojournal
+    volumes:
+      - mongo-db:/data
+
+volumes:
+  mongo-db:

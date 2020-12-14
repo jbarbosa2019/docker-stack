@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  # Orion is the context broker
+  orion:
+    container_name: fiware-orion
+    ports:
+      - "1026:1026"
+    command: -dbhost mongo-db -logLevel DEBUG
+
+  # Databases
+  mongo-db:
+    container_name: db-mongo
+    ports:
+      - "27017:27017"
