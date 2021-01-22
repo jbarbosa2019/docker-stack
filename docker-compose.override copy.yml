@@ -14,27 +14,6 @@ services:
     ports:
       - "27017:27017"
 
-  # Persintency of data
-  cygnus:
-    image: fiware/cygnus-ngsi:latest
-    hostname: cygnus
-    container_name: fiware-cygnus
-    depends_on:
-      - mongo-db
-    networks:
-      - default
-    expose:
-      - "5080"
-    ports:
-      - "5051:5051"
-      - "5080:5080"
-    environment:
-      - "CYGNUS_MONGO_HOSTS=mongo-db:27017"
-      - "CYGNUS_MONGO_SERVICE_PORT=5051"
-      - "CYGNUS_LOG_LEVEL=DEBUG"
-      - "CYGNUS_API_PORT=5080"
-      - "CYGNUS_SERVICE_PORT=5051"
-
   health-data-provider:
     build: ./health-data-provider/
     entrypoint: ["npm", "run", "debug"]

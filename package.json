@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "client-oauth2": "^4.3.3",
+    "passport-fitbit-oauth2": "^1.0.2"
+  }
+}
